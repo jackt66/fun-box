@@ -1,0 +1,51 @@
+<h1>Guess My Salary, Bitch</h1>
+
+<input type="number" id="guessInput" placeholder="Enter your guess">
+<button onclick="checkGuess()">Guess!</button>
+
+<p id="result"></p>
+
+<script>
+  const targetNumber = 130000;
+
+  function checkGuess() {
+    const inputValue = document.getElementById("guessInput").value;
+    const guess = Number(inputValue);
+    const result = document.getElementById("result");
+
+    if (inputValue === "") {
+      result.textContent = "Enter a number retard";
+      return;
+    }
+
+    const difference = Math.abs(targetNumber - guess);
+
+    let temperature = "";
+    let direction = "";
+
+    // Determine hot/cold
+    if (guess === targetNumber) {
+      result.textContent = "Nice job nigga!";
+      return;
+    } else if (difference <= 1000) {
+      temperature = "Very hot";
+    } else if (difference <= 5000) {
+      temperature = "Hot";
+    } else if (difference <= 15000) {
+      temperature = "Warm";
+    } else if (difference <= 30000) {
+      temperature = "Cold";
+    } else {
+      temperature = "Very cold";
+    }
+
+    // Determine direction
+    if (guess < targetNumber) {
+      direction = "too low";
+    } else {
+      direction = "too high";
+    }
+
+    result.textContent = `${temperature}, ${direction}`;
+  }
+</script>
