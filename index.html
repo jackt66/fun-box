@@ -14,7 +14,7 @@
     const result = document.getElementById("result");
 
     if (inputValue === "") {
-      result.textContent = "Enter a number retard";
+      result.textContent = "Enter a number";
       return;
     }
 
@@ -25,7 +25,7 @@
 
     // Determine hot/cold
     if (guess === targetNumber) {
-      result.textContent = "Nice job nigga!";
+      result.textContent = "Nice job!";
       return;
     } else if (difference <= 1000) {
       temperature = "Very hot";
